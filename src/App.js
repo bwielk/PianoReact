@@ -23,18 +23,30 @@ class App extends Component {
 
   render() {
     const keys = []
-    const words = []
+    const namesOfKeys = []
 
     for(let i=0; i<this.state.combinationsOfKeys.length; i++){
-      words.push(i)
+      let nameOfMp3File = ''
+      let currentObject = this.state.combinationsOfKeys[i];
+      let keyOfTheObject = Object.keys(currentObject)
+      let valueOfTheObjectArrayWithKeyLimits = currentObject[keyOfTheObject[0]]
+      for(let n = valueOfTheObjectArrayWithKeyLimits[0];
+        n < valueOfTheObjectArrayWithKeyLimits[1]+1; n++){
+          nameOfMp3File = keyOfTheObject + n + '.mp3'
+          namesOfKeys.push(nameOfMp3File)
+        }
     };
 
     console.log(this.state.combinationsOfKeys.length)
-    for(let i=0; i<10; i++){
-      keys.push(<Key key={i}/>)
+    for(let i=0; i<namesOfKeys.length; i++){
+      let nameOfAnMP3File = namesOfKeys[i];
+      keys.push(<Key
+        key={i}
+        keyName={nameOfAnMP3File.replace('.mp3', '')}
+        fileName={nameOfAnMP3File}/>)
     }
     console.log({keys})
-    console.log({words})
+    console.log({namesOfKeys})
 
     return (
       <div>

@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 
-class Key extends Component{
-  render() {
-    return (
-      <button>A key</button>
-    )
-  }
+const key = (props) => {
+  return (
+    <button>{props.keyName}</button>
+  )
 }
 
-export default Key
+export default key;
