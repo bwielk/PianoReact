@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import Sound from 'react-sound';
 
 const key = (props) => {
   return (
-    <button>{props.keyName}</button>
+    <button onClick={props.playMusic}>{props.keyName}</button>
   )
 }
 

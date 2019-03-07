@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Key from './Components/Key.js';
+import Tone from './Components/Tone.js';
 
 class App extends Component {
   state = {
@@ -19,6 +20,13 @@ class App extends Component {
       {'G': [1,7]},
       {'Gb': [1,7]}
     ]
+  }
+
+  handlePlayingMp3File = (fileId) => {
+    console.log('Clicked'+ fileId)
+    return (
+      <Tone/>
+    )
   }
 
   render() {
@@ -43,11 +51,9 @@ class App extends Component {
       keys.push(<Key
         key={i}
         keyName={nameOfAnMP3File.replace('.mp3', '')}
-        fileName={nameOfAnMP3File}/>)
+        fileName={nameOfAnMP3File}
+        playMusic={() => this.handlePlayingMp3File(nameOfAnMP3File)}/>)
     }
-    console.log({keys})
-    console.log({namesOfKeys})
-
     return (
       <div>
         {keys}
