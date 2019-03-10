@@ -25,7 +25,7 @@ class App extends Component {
   handlePlayingMp3File = (fileId) => {
     console.log('Clicked'+ fileId)
     return (
-      <Tone/>
+      <Tone keyName={fileId}/>
     )
   }
 

@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import tune from '../piano-keys-sounds/A0.mp3';
 import Sound from 'react-sound'
 
-export default class Tone extends Component {
+class Tone extends Component {
+
+constructor(props){
+  super(props);
+}
 
 render() {
  return (
    <Sound
-   src={tune}
+   url='/piano-keys-sounds/A1.mp3'
    playStatus={Sound.status.PLAYING}
    />
   );
  }
 }
+
+export default Tone;
